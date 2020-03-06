@@ -1,0 +1,438 @@
+input[type=text], input[type=password], input[type=submit], input[type=email] {
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    width: 100%;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14pt;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 935px;
+    margin: 0 auto;
+}
+
+.whole_body {
+    height: auto;
+    min-height: calc(100vh - 40px);
+    position: relative;
+    background-color: rgb(250, 250, 250);
+}
+
+.error {
+    color: rgb(187, 17, 17);
+}
+
+.top-nav {
+    height: 60px;
+    background-color: white;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.top-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.navbar-brand {
+    padding: 0;
+    margin-left: 15px;
+}
+
+.logo {
+    font-size: 30pt;
+    line-height: 60px;
+    font-weight: 100;
+    padding: 0;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 40s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+.top-nav .right-side {
+    display: flex;
+    flex-direction: row;
+}
+
+.top-nav-icon {
+    padding: 17px;
+}
+
+.footer {
+    color: #696969;
+    height: 40px;
+    border-top: 1px solid rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post_image {
+    width: 100%;
+}
+
+/* Create three equal columns that floats next to each other */
+.sidebar {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 58px;
+    min-width: 252px !important;
+    height: 100%;
+    text-align: left;
+    background: white;
+}
+
+.content {
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 100%;
+}
+
+.content_body {
+    margin-top: 48px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 20px;
+}
+
+.my_acc {
+    margin: 0 15% 0 15% !important;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row div.sidebar div.side_menu {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    width: 100%;
+}
+
+.row div.sidebar div.und {
+    border-bottom: 1px solid #ccc;
+}
+
+.row div.sidebar div.side_menu a {
+    margin-left: 20px;
+}
+
+.side_menu a i.fas {
+    margin-right: 10px;
+}
+
+.side_menu a {
+    color: black;
+}
+
+/* instagram layout */
+
+.container {
+    max-width: 93.5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.btn {
+    display: inline-block;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: 0.5rem auto #4d90fe;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.clean_link:hover {
+    color: white;
+}
+
+/* Gallery Section */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.gallery-item:hover .gallery-item-info,
+.gallery-item:focus .gallery-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.gallery-item-info {
+    display: none;
+}
+
+.gallery-item-likes {
+    margin-right: 2.2rem;
+}
+
+.gallery-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Loader */
+
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.loader {
+    width: 5rem;
+    height: 5rem;
+    border: 0.2rem solid #999;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: loader 750ms ease infinite;
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*
+
+The following code will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling. 
+
+*/
+
+
+/* Login Form */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+    width: 100%;
+    padding: 8vh 0 0;
+    margin: auto;
+}
+
+.form {
+    margin: 1rem auto;
+    max-width: 360px;
+    background: #FFFFFF;
+    padding: 1rem;
+    text-align: center;
+	border: 1px solid rgb(219, 219, 219);
+}
+
+form input[type=password], form input[type=text], form input[type=email] {
+    border-radius: 4px;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100% !important;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14pt;
+}
+
+.login_form input[type=submit] {
+    border-radius: 4px;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 6px;
+    background: rgb(255,100,88);
+    background: linear-gradient(90deg, rgba(255,100,88,1) 0%, rgba(255,155,51,1) 75%, rgba(255,84,255,1) 100%);
+    opacity: .9;
+    color: #FFFFFF;
+    font-size: 14pt;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+div .save_change {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    background-color: #80deea;
+    color: #FFFFFF;
+    font-size: 14pt;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+div .delete_btn {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    background-color: rgb(189, 32, 32);
+    color: #FFFFFF;
+    font-size: 14pt;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.login_form input[type=submit]:hover {
+    opacity: 1;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12pt;
+}
+
+.form .message a {
+    color: #4bacb8;
+    text-decoration: none;
+}
+
+.form .register-form {
+    display: none;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.container .info {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.container .info span {
+    color: #4d4d4d;
+    font-size: 12px;
+}
+
+.container .info span a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.container .info span .fa {
+    color: #EF3B3A;
+}
+
+@media only screen and (max-width: 450px) {
+    .my_acc {
+        margin: 0 10px 0 10px !important;
+    }
+
+    .sidebar {
+        margin-top: 10px !important;
+    }
+
+    .logo {
+        font-size: 22pt !important;
+    }
+
+    .container {
+        padding: 0 !important;
+    }
+
+    .top-nav-icon {
+        padding: 0 10px 0 10px !important;
+    }
+}
+
+@media only screen and (max-width: 1094px) {
+    .col-sm-4 {
+        max-width: 100% !important;
+        width: 100% !important;
+        flex: 100% !important;
+    }
+
+    .col-sm-8 {
+        max-width: 100% !important;
+        width: 100% !important;
+        flex: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .content {
+        padding-top: 0 !important;
+    }
+
+    .content_body {
+        margin-top: 0 !important;
+    }
+}

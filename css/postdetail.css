@@ -1,0 +1,66 @@
+.post_detail {
+	margin-top: 1rem;
+	background: #FFFFFF;
+	padding: 1rem;
+	text-align: center;
+	border: 1px solid rgb(219, 219, 219);
+}
+
+.post_detail_wrapper {
+	padding-bottom: 1rem;
+}
+
+.post_detail_header {
+	display: flex;
+	justify-content: space-between;
+}
+
+#like-btn-1:hover, #like-btn-0:hover {
+	cursor: pointer;
+}
+
+#comment-btn:hover {
+	cursor: pointer;
+}
+
+#comment_input {
+	width: 100%;
+	min-height: 60px;
+	border: 2px solid rgb(214, 214, 214);
+	white-space: pre-wrap;
+	resize: none;
+}
+
+#comment_submit {
+	float: right;
+	margin-top: 3px;
+}
+
+#comment_list {
+	text-align: left;
+	border-bottom: 2px solid rgb(214, 214, 214);
+	margin-bottom: 5px;
+}
+
+.delete_post_btn {
+	color: rgb(196, 30, 30);
+}
+
+.delete_post_btn:hover {
+	cursor: pointer;
+	color: black;
+}
+
+.comment_user_id {
+	font-weight: bold;
+}
+
+.like_comment_btn {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+.indiv_comment {
+	border-top: 2px solid rgb(214, 214, 214);
+}

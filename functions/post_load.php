@@ -5,11 +5,11 @@
 		exit();
 	}
 	header("Content-Type: application/json");
+	// считываем тело запроса и превращаем в json
 	$data = json_decode(stripcslashes(file_get_contents('php://input')));
 	require_once '../config/setup.php';
 	try {
-		if ($data->num_load)
-		{
+		if ($data->num_load) {
 			$load_from = $data->num_load * $data->num_post;
 		} else {
 			$load_from = (int)$data->num_load;

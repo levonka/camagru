@@ -96,14 +96,22 @@ function showComments() {
 }
 
 function loadPosts() {
-    var request = new XMLHttpRequest();
+    if (!loader) {
+        loader = document.getElementById("loader");
+    }
+
+    var xhr = new XMLHttpRequest();
     var url = "functions/post_load.php";
-    request.open("POST", url, true);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.response) {
-                var jsonData = JSON.parse(request.response);
+    // инициализация
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // loader.classList.add("loader-hidden");
+            // xhr.response это строка
+            if (xhr.response) {
+                var jsonData = JSON.parse(xhr.response);
+                console.log(jsonData);
                 var gallery_list = document.getElementById('gallery');
 
                 for (var i = 0; i < jsonData.length; i++) {
@@ -135,10 +143,12 @@ function loadPosts() {
                     gallery_list.appendChild(gallery_item);
                 }
                 num_load++;
-                prevent_dup = 0;
+                isPostsLoading = false;
             }
         }
     }
     var data = JSON.stringify({'num_load': num_load, 'num_post': num_post});
-    request.send(data);
+    // отправка
+    xhr.send(data);
+    // loader.classList.remove("loader-hidden");
 }

@@ -9,25 +9,31 @@
 		<script type="text/javascript" src="js/upload.js"></script>
 		<script>
 			var num_load = 0;
-			var num_post = 14;
-			var prevent_dup = 0;
+			var num_post = 8;
+			var isPostsLoading = false;
 
-			function infinite_page() {
-				if((document.getElementById("body").scrollTop > (document.getElementById("body").scrollHeight * 0.50)) && prevent_dup != 1) {
-					prevent_dup = 1;
+			var loader;
+
+			function fetchPosts() {
+			    var body = document.getElementById("body");
+
+				if ((body.scrollTop > (body.scrollHeight * 0.5)) && isPostsLoading !== true) {
+				    console.log('hi');
+					isPostsLoading = true;
 					loadPosts();
 				}
 			}
 		</script>
 	</head>
-	<body id='body' onload="loadPosts();" onscroll="infinite_page();">
+	<body id='body' onload="loadPosts();" onscroll="fetchPosts();">
 		<div class="whole_body">
 			<?php require_once ('template/menu_bar.php')?>
+
 			<div class="wrapper">
 				<div class="gallery" id="gallery">
 					
 				</div>
-				<div class="loader-wrapper">
+				<div class="loader-wrapper loader-hidden" id="loader">
                     <div class="loader"></div>
                 </div>
 			</div>

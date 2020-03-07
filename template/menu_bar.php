@@ -9,8 +9,8 @@ if (realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
     <div class="wrapper top-nav-container">
 
         <div class="left-side">
-            <a class="navbar-brand" href="/">
-                <span class="logo">CAMAGRU</span>
+            <a class="nav-logo" href="/">
+                <span class="nav-logo-text">CAMAGRU</span>
             </a>
         </div>
 

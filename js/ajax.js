@@ -105,13 +105,20 @@ function loadPosts() {
     // инициализация
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onloadstart = function () {
+        loader.classList.remove("loader-hidden");
+    };
+
+    xhr.onloadend = function () {
+        loader.classList.add("loader-hidden");
+    };
+
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // loader.classList.add("loader-hidden");
             // xhr.response это строка
             if (xhr.response) {
                 var jsonData = JSON.parse(xhr.response);
-                console.log(jsonData);
                 var gallery_list = document.getElementById('gallery');
 
                 for (var i = 0; i < jsonData.length; i++) {
@@ -125,7 +132,7 @@ function loadPosts() {
                     gallery_item.setAttribute('class', 'gallery-item');
                     gallery_item.innerHTML = `
 					<img class="gallery-image" alt="" src="upload/${img_src}">
-					<a href="postdetail.php?id=${img_id}" class="clean_link">
+					<a href="postdetail.php?id=${img_id}" class="gallery-item-link">
 						<div class="gallery-item-info">
 							<div class="gallery-item-likes">
 								<span class="visually-hidden">Likes:</span>
@@ -146,9 +153,7 @@ function loadPosts() {
                 isPostsLoading = false;
             }
         }
-    }
+    };
     var data = JSON.stringify({'num_load': num_load, 'num_post': num_post});
-    // отправка
     xhr.send(data);
-    // loader.classList.remove("loader-hidden");
 }

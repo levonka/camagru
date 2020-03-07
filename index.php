@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<?php require_once('template/head_includes.php'); ?>
+        <link href="/css/index.css" rel="stylesheet">
 		<title>Camagru</title>
 		<script type="text/javascript" src="js/ajax.js"></script>
 		<script type="text/javascript" src="js/upload.js"></script>
@@ -17,7 +18,7 @@
 			function fetchPosts() {
 			    var body = document.getElementById("body");
 
-				if ((body.scrollTop > (body.scrollHeight * 0.5)) && isPostsLoading !== true) {
+				if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && isPostsLoading !== true) {
 				    console.log('hi');
 					isPostsLoading = true;
 					loadPosts();

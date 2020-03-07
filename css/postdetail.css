@@ -1,5 +1,4 @@
 .post_detail {
-	margin-top: 1rem;
 	background: #FFFFFF;
 	padding: 1rem;
 	text-align: center;
@@ -7,7 +6,7 @@
 }
 
 .post_detail_wrapper {
-	padding-bottom: 1rem;
+	padding: 1rem 0;
 }
 
 .post_detail_header {

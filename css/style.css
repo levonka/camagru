@@ -22,6 +22,10 @@ body {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 .wrapper {
     max-width: 935px;
     margin: 0 auto;
@@ -38,6 +42,53 @@ body {
     color: rgb(187, 17, 17);
 }
 
+.instagram-btn {
+    border-radius: 4px;
+    outline: 0;
+    width: 100%;
+    padding: 6px;
+    background: rgb(255,100,88);
+    background: linear-gradient(90deg, rgba(255,100,88,1) 0%, rgba(255,155,51,1) 75%, rgba(255,84,255,1) 100%);
+    opacity: .9;
+    color: #FFFFFF;
+    font-size: 14pt;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.instagram-btn:hover {
+    opacity: 1;
+}
+
+/* Loader */
+
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.loader-hidden {
+    display: none;
+}
+
+.loader {
+    width: 5rem;
+    height: 5rem;
+    border: 0.2rem solid #999;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: loader 750ms ease infinite;
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation bar */
 .top-nav {
     height: 60px;
     background-color: white;
@@ -50,12 +101,13 @@ body {
     align-items: center;
 }
 
-a.navbar-brand {
+a.nav-logo {
     padding: 0;
     margin-left: 15px;
+    text-decoration: none;
 }
 
-.logo {
+.nav-logo-text {
     font-size: 30pt;
     line-height: 60px;
     font-weight: 100;
@@ -85,9 +137,12 @@ a.navbar-brand {
     padding: 17px;
 }
 
+/* Footer */
+
 .footer {
     color: #696969;
     height: 40px;
+    font-size: 1rem;
     border-top: 1px solid rgb(219, 219, 219);
     display: flex;
     align-items: center;
@@ -189,79 +244,6 @@ a.navbar-brand {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-.clean_link:hover {
-    color: white;
-}
-
-/* Gallery Section */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-}
-
-.gallery-item {
-    position: relative;
-    color: #fff;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.gallery-item:hover .gallery-item-info,
-.gallery-item:focus .gallery-item-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.gallery-item-info {
-    display: none;
-}
-
-.gallery-item-likes {
-    margin-right: 2.2rem;
-}
-
-.gallery-image {
-    width: 100%;
-    object-fit: cover;
-}
-
-/* Loader */
-
-.loader-wrapper {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 30px;
-}
-
-.loader-hidden {
-    display: none;
-}
-
-.loader {
-    width: 5rem;
-    height: 5rem;
-    border: 0.2rem solid #999;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    animation: loader 750ms ease infinite;
-}
-
-@keyframes loader {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 /*
 
 The following code will only run if your browser supports CSS grid.
@@ -319,6 +301,10 @@ form input[type=password], form input[type=text], form input[type=email] {
     margin-top: 5px;
 }
 
+.login_form input[type=submit]:hover {
+    opacity: 1;
+}
+
 div .save_change {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -349,10 +335,6 @@ div .delete_btn {
     transition: all 0.3s ease;
     cursor: pointer;
     margin-top: 5px;
-}
-
-.login_form input[type=submit]:hover {
-    opacity: 1;
 }
 
 .form .message {
@@ -404,7 +386,7 @@ div .delete_btn {
         margin-top: 10px !important;
     }
 
-    .logo {
+    .nav-logo-text {
         font-size: 22pt !important;
     }
 

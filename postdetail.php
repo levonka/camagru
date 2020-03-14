@@ -21,11 +21,13 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
 <body>
 <div class="whole_body">
     <?php require_once('template/menu_bar.php'); ?>
+
     <div class="wrapper post_detail_wrapper">
         <div class="post_detail">
             <?php
             require_once 'functions/postdetail_fetch.php';
             require_once 'config/setup.php';
+
             $load_img = load_image($_GET['id'], $conn);
             ?>
             <div class="post_detail_header">
@@ -33,8 +35,8 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
                 <?php
                 if ($load_img['login'] === $_SESSION['loggued_on_user']) {
                     ?>
-                    <form action="functions/delete_post.php" method="POST" id="form_delete_post">
-                        <i class="fas fa-trash-alt delete_post_btn" id="delete_post" onclick="delete_post();"></i>
+                    <form id="form_delete_post" action="functions/delete_post.php" method="POST">
+                        <i id="delete_post" class="fas fa-trash-alt delete_post_btn" onclick="deletePost();"></i>
                         <input type="hidden" name="img_id" value="<?php echo $_GET['id']; ?>">
                         <input type="hidden" name="post_login" value="<?php echo $load_img['login']; ?>">
                     </form>
@@ -57,8 +59,7 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
                         <?php
                         if (check_liked($_GET['id'], $_SESSION['loggued_on_user'], $conn)) {
                             ?>
-                            <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true"
-                               onclick="likePost(1)"></i>
+                            <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"></i>
                             <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"
                                style="display:none"></i>
                             <?php
@@ -66,8 +67,7 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
                             ?>
                             <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"
                                style="display:none"></i>
-                            <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true"
-                               onclick="likePost(0)"></i>
+                            <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"></i>
                             <?php
                         }
                         ?>

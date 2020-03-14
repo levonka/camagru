@@ -3,7 +3,7 @@ window.onload = function() {
 		document.getElementById('startbutton').disabled = true;
 	}
 }
-function change_preview() {
+function changePreview() {
 	if (document.getElementsByClassName('sticker_lists_clickable').disabled == false) {
 		document.getElementById("filter_tmp").src = document.querySelector('input[name="source"]:checked').value;
 		document.getElementById('startbutton').disabled = false;
@@ -18,15 +18,15 @@ function change_preview() {
 	}
 }
 
-function prevent_sticker() {
+function preventSticker() {
 	document.getElementsByClassName('sticker_lists_clickable').disabled = true;
 }
 
-function activate_sticker() {
+function activateSticker() {
 	document.getElementsByClassName('sticker_lists_clickable').disabled = false;
 }
 
-function delete_post() {
+function deletePost() {
 	if (confirm('Do you really want to delete this post?')) {
 		document.getElementById('form_delete_post').submit();
 	}

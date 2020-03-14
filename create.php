@@ -13,15 +13,19 @@
 	<body>
 		<div class="whole_body">
 			<?php require_once ('template/menu_bar.php'); ?>
+
 			<div class="login-page">
 				<div class="form">
 					<form id="test" action="/functions/create.php" method="POST" onsubmit="setCookie()">
 						<div class="login_form">
-							<input id="log" type="text" name="login" value="" required placeholder="Login"><br/>
-							<input type="password" name="passwd" value="" required placeholder="Password"><br/>
-							<input type="password" name="passwd_conf" value="" required placeholder="Confirm Password"><br/>
-							<input id="email" type="email" name="email" value="" required placeholder="E-mail address"><br/>
-							<input type="checkbox" name="notice" class="form-check-input" checked><label class="form-check-label">Receive notification</label><br/>
+							<input id="login" type="text" name="login" value="" required placeholder="Login">
+							<input type="password" name="passwd" value="" required placeholder="Password">
+							<input type="password" name="passwd_conf" value="" required placeholder="Confirm Password">
+							<input id="email" type="email" name="email" value="" required placeholder="E-mail address">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="notice" class="form-check-input" checked>
+                                Receive notification
+                            </label>
 							<?php
 								if(isset($_SESSION["error"])){
 									$error = $_SESSION["error"];

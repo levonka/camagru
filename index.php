@@ -7,7 +7,6 @@
         <link href="/css/index.css" rel="stylesheet">
 		<title>Camagru</title>
 		<script type="text/javascript" src="js/ajax.js"></script>
-		<script type="text/javascript" src="js/upload.js"></script>
 		<script>
 			var num_load = 0;
 			var num_post = 8;
@@ -16,17 +15,14 @@
 			var loader;
 
 			function fetchPosts() {
-			    var body = document.getElementById("body");
-
 				if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && isPostsLoading !== true) {
-				    console.log('hi');
 					isPostsLoading = true;
 					loadPosts();
 				}
 			}
 		</script>
 	</head>
-	<body id='body' onload="loadPosts();" onscroll="fetchPosts();">
+	<body onload="loadPosts();" onscroll="fetchPosts();">
 		<div class="whole_body">
 			<?php require_once ('template/menu_bar.php')?>
 

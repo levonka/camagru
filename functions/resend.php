@@ -16,7 +16,7 @@ try {
 			header("Location: ../hold.php");
 			exit();
 		} else {
-			$_SESSION['error'] = "FAILED TO RESEND VERIFICATION EMAIL BY UNKNOWN REASON.";
+			$_SESSION['error'] = "FAILED TO RESEND VERIFICATION EMAIL (NOT FOUND USER IN DB).";
 			header("Location: ../login.php");
 			exit();
 		}

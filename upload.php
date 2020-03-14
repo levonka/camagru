@@ -30,7 +30,7 @@ if (!isset($_SESSION["loggued_on_user"])) {
             <form action='functions/merge.php' method="POST" id="preview" class="preview-form">
                 <?php
                 if ($_GET['id'] === 'use_cam') {
-                    echo "<script> activate_sticker(); </script>"
+                    echo "<script> activateSticker(); </script>"
                     ?>
                     <div class="camera">
                         <video id="video">Video stream not available.</video>
@@ -41,7 +41,7 @@ if (!isset($_SESSION["loggued_on_user"])) {
                 }
 
                 if ($_GET['id'] === 'upload') {
-                    echo "<script> prevent_sticker(); </script>"
+                    echo "<script> preventSticker(); </script>"
                     ?>
                     <input type="hidden" name="test" id="take_val">
                     <div class="show_box">
@@ -49,7 +49,7 @@ if (!isset($_SESSION["loggued_on_user"])) {
                         <img id="filter_tmp">
                     </div>
                     <input class="choose_file" type="file" accept="image/png"
-                           onchange="previewFile(event); activate_sticker();">
+                           onchange="previewFile(event); activateSticker();">
                     <?php
                 }
 
@@ -67,7 +67,7 @@ if (!isset($_SESSION["loggued_on_user"])) {
                                 <label>
                                     <input type="radio" name="source" class="sticker_lists_clickable"
                                            value="../stickers/<?php echo $file_count; ?>.png"
-                                           onclick="change_preview();">
+                                           onclick="changePreview();">
                                     <img src='stickers/<?php echo $file_count; ?>.png' class='sticker_icons'>
                                 </label>
                                 <?php

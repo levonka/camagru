@@ -24,7 +24,7 @@ session_start();
 							<input type="submit" name="submit" value="Resend Verification">
 						</div>
 					</form>
-					<form id="test" action="/">
+					<form id="test" action="/login.php">
 						<div class="login_form">
 							<input type="submit" name="submit" value="To Login Page">
 						</div>

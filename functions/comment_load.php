@@ -1,3 +1,4 @@
+<!--TODO: prevent from direct access-->
 <?php
 	header("Content-Type: application/json");
 	$data = json_decode(stripcslashes(file_get_contents('php://input')));

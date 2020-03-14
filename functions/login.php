@@ -16,8 +16,8 @@ if ($_POST["login"] && $_POST["passwd"])
 		$check_db = "SELECT verified FROM users WHERE login LIKE ? AND passwd LIKE ?";
 		$sql = $conn->prepare($check_db);
 		$sql->execute(array($login, $passwd));
-		if ($val = $sql->fetch()) {
-			if ($val['verified']) {
+		if ($user_data = $sql->fetch()) {
+			if ($user_data['verified']) {
 				$_SESSION["loggued_on_user"] = $login;
 				echo "OK\n";
 				unset($_SESSION["error"]);

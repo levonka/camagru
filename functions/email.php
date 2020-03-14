@@ -9,11 +9,12 @@
 		'.$login.'
 				
 		Please click this link to activate your account:
-		http://localhost:3000/verify.php?email='.$email.'&hash='.$hash.'
+		http://localhost:5000/verify.php?email='.$email.'&hash='.$hash.'
 		
 		'; // Our message above including the link
 							
 		$headers = 'From:no-reply-verify@Camagru.com' . "\r\n"; // Set from headers
+        echo $to, $subject, $message, $headers;
 		mail($to, $subject, $message, $headers); // Send our email
 	}
 

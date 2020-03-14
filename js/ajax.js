@@ -28,7 +28,7 @@ function likePost(i) {
 }
 
 function commentPost(event) {
-    event.preventDefault();
+    // event.preventDefault();
     var img_id = document.getElementById("image_id").value;
     var login = document.getElementById("loggued_on_user").value;
     var comment = document.getElementById("comment_input").value;
@@ -45,10 +45,10 @@ function commentPost(event) {
                 var num_likes = document.getElementById('num_comments');
                 num_likes.innerHTML = request.response;
                 var comment_box = document.getElementById('comment_list');
-                var comment_list = document.createElement('p');
-                comment_list.setAttribute('class', 'indiv_comment');
-                comment_list.innerHTML = `<span class='comment_user_id'>${login}</span> : ${comment}`;
-                comment_box.appendChild(comment_list);
+                var commentItem = document.createElement('p');
+                commentItem.setAttribute('class', 'indiv_comment');
+                commentItem.innerHTML = `<span class='comment_user_id'>${login}</span> : ${comment}`;
+                comment_box.appendChild(commentItem);
             }
         };
 
@@ -62,8 +62,8 @@ function showComments() {
     var comment = document.getElementById('comment_display');
     if (comment.style.display == 'block') {
         comment.style.display = 'none';
-        var comment_box = document.getElementById('comment_list');
-        comment_box.innerHTML = '';
+        // var comment_box = document.getElementById('comment_list');
+        // comment_box.innerHTML = '';
     } else {
         comment.style.display = 'block';
         var request = new XMLHttpRequest();
@@ -74,14 +74,15 @@ function showComments() {
             if (request.readyState === 4 && request.status === 200) {
                 if (request.response) {
                     var jsonData = JSON.parse(request.response);
+                    console.log("json data: ", jsonData);
                     var comment_box = document.getElementById('comment_list');
                     for (var i = 0; i < jsonData.length; i++) {
-                        var obj = jsonData[i];
-                        var login = obj['login'];
-                        var read_comment = obj['comment'];
+                        var comment = jsonData[i];
+                        var login = comment['login'];
+                        var commentText = comment['comment'];
                         var comment_list = document.createElement('p');
                         comment_list.setAttribute('class', 'indiv_comment');
-                        comment_list.innerHTML = `<span class='comment_user_id'>${login}</span> : ${read_comment}`;
+                        comment_list.innerHTML = `<span class='comment_user_id'>${login}</span> : ${commentText}`;
                         comment_box.appendChild(comment_list);
                     }
                 }

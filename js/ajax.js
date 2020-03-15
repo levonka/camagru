@@ -27,31 +27,29 @@ function likePost(i) {
     }
 }
 
-function commentPost(event) {
-    // event.preventDefault();
+function commentPost() {
     var img_id = document.getElementById("image_id").value;
     var login = document.getElementById("loggued_on_user").value;
     var comment = document.getElementById("comment_input").value;
-    comment = comment.replace(/\r?\n/g, '<br />');
+
+    comment = comment.replace(/\r?\n/g, '');
     if (img_id && login && comment) {
         var request = new XMLHttpRequest();
         var url = "functions/comment.php";
+
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
-                //var jsonData = JSON.parse(request.response);
-                //console.log(jsonData);
                 var num_likes = document.getElementById('num_comments');
                 num_likes.innerHTML = request.response;
                 var comment_box = document.getElementById('comment_list');
                 var commentItem = document.createElement('p');
-                commentItem.setAttribute('class', 'indiv_comment');
-                commentItem.innerHTML = `<span class='comment_user_id'>${login}</span> : ${comment}`;
+
+                commentItem.innerHTML = `<span class='comment_user_id'>${login} </span>${comment}`;
                 comment_box.appendChild(commentItem);
             }
         };
-
         var data = JSON.stringify({"img_id": img_id, "login": login, "comment": comment});
         request.send(data);
     }
@@ -60,40 +58,36 @@ function commentPost(event) {
 
 function showComments() {
     var comment = document.getElementById('comment_display');
-    if (comment.style.display == 'block') {
-        comment.style.display = 'none';
-        // var comment_box = document.getElementById('comment_list');
-        // comment_box.innerHTML = '';
-    } else {
-        comment.style.display = 'block';
-        var request = new XMLHttpRequest();
-        var url = "functions/comment_load.php";
-        request.open("POST", url, true);
-        request.setRequestHeader("Content-Type", "application/json");
-        request.onreadystatechange = function () {
-            if (request.readyState === 4 && request.status === 200) {
-                if (request.response) {
-                    var jsonData = JSON.parse(request.response);
-                    console.log("json data: ", jsonData);
-                    var comment_box = document.getElementById('comment_list');
-                    for (var i = 0; i < jsonData.length; i++) {
-                        var comment = jsonData[i];
-                        var login = comment['login'];
-                        var commentText = comment['comment'];
-                        var comment_list = document.createElement('p');
-                        comment_list.setAttribute('class', 'indiv_comment');
-                        comment_list.innerHTML = `<span class='comment_user_id'>${login}</span> : ${commentText}`;
-                        comment_box.appendChild(comment_list);
-                    }
+
+    comment.style.display = 'block';
+    var request = new XMLHttpRequest();
+    var url = "functions/comment_load.php";
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onreadystatechange = function () {
+
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.response) {
+                var jsonData = JSON.parse(request.response);
+                var comment_box = document.getElementById('comment_list');
+
+                for (var i = 0; i < jsonData.length; i++) {
+                    var comment = jsonData[i];
+                    var login = comment['login'];
+                    var commentText = comment['comment'];
+                    var comment_paragraph = document.createElement('p');
+
+                    comment_paragraph.innerHTML = `<span class='comment_user_id'>${login} </span>${commentText}`;
+                    comment_box.appendChild(comment_paragraph);
                 }
             }
-        };
-        var img_id = document.getElementById("image_id").value;
+        }
+    };
+    var img_id = document.getElementById("image_id").value;
 
-        var data = JSON.stringify({"img_id": img_id});
+    var data = JSON.stringify({"img_id": img_id});
 
-        request.send(data);
-    }
+    request.send(data);
 }
 
 function loadPosts() {
@@ -103,7 +97,7 @@ function loadPosts() {
 
     var xhr = new XMLHttpRequest();
     var url = "functions/post_load.php";
-    // инициализация
+
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -130,6 +124,7 @@ function loadPosts() {
                     var img_src = single_post['img'];
                     var login = single_post['login'];
                     var gallery_item = document.createElement('div');
+
                     gallery_item.setAttribute('class', 'gallery-item');
                     gallery_item.innerHTML = `
 					<img class="gallery-image" alt="" src="upload/${img_src}">

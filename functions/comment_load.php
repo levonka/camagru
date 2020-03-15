@@ -1,5 +1,5 @@
-<!--TODO: prevent from direct access-->
 <?php
+    //<!--TODO: prevent from direct access-->
 	header("Content-Type: application/json");
 	$data = json_decode(stripcslashes(file_get_contents('php://input')));
 	require_once '../config/setup.php';

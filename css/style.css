@@ -137,6 +137,12 @@ a.nav-logo {
     padding: 17px;
 }
 
+.login-button,
+.login-button:focus {
+    font-size: 16px;
+    color: #4bacb8;
+}
+
 /* Footer */
 
 .footer {

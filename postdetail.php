@@ -18,85 +18,120 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
 </head>
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/upload.js"></script>
-<body>
-<div class="whole_body">
-    <?php require_once('template/menu_bar.php'); ?>
+<body onload="showComments()">
+    <div class="whole_body">
+        <?php require_once('template/menu_bar.php'); ?>
 
-    <div class="wrapper post_detail_wrapper">
-        <div class="post_detail">
-            <?php
-            require_once 'functions/postdetail_fetch.php';
-            require_once 'config/setup.php';
-
-            $load_img = load_image($_GET['id'], $conn);
-            ?>
-            <div class="post_detail_header">
-                <span><?php echo $load_img['postdate']; ?></span>
+        <div class="wrapper post_detail_wrapper">
+            <div class="post_detail">
                 <?php
-                if ($load_img['login'] === $_SESSION['loggued_on_user']) {
-                    ?>
-                    <form id="form_delete_post" action="functions/delete_post.php" method="POST">
-                        <i id="delete_post" class="fas fa-trash-alt delete_post_btn" onclick="deletePost();"></i>
-                        <input type="hidden" name="img_id" value="<?php echo $_GET['id']; ?>">
-                        <input type="hidden" name="post_login" value="<?php echo $load_img['login']; ?>">
-                    </form>
-                    <?php
-                }
+                require_once 'functions/postdetail_fetch.php';
+                require_once 'config/setup.php';
+
+                $load_img = load_image($_GET['id'], $conn);
                 ?>
-            </div>
+                <div class="post_detail_header">
+                    <div class="posted_by">
+                        <span class="posted_by_label">Posted by : </span>
+                        <span class="posted_by_text"><?php echo $load_img['login']; ?></span>
+                    </div>
 
-            <img class="post_image" src="<?php echo $load_img['img']; ?>">
-
-            <span style="color: grey;">Posted by : </span><span><?php echo $load_img['login']; ?></span>
-
-            <div class='like_comment_btn'>
-                <input type="hidden" id="image_id" name="imgid" value="<?php echo $_GET['id']; ?>">
-                <input type="hidden" id="loggued_on_user" name="login" value="<?php echo $_SESSION['loggued_on_user']; ?>">
-
-                <div class="button_align">
-                    <div>
-                        <span class="visually-hidden">Likes:</span>
-                        <?php
-                        if (check_liked($_GET['id'], $_SESSION['loggued_on_user'], $conn)) {
-                            ?>
-                            <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"></i>
-                            <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"
-                               style="display:none"></i>
-                            <?php
-                        } else {
-                            ?>
-                            <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"
-                               style="display:none"></i>
-                            <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"></i>
-                            <?php
-                        }
+                    <?php
+                    if ($load_img['login'] === $_SESSION['loggued_on_user']) {
                         ?>
+                        <form id="form_delete_post" class="form_delete_post" action="functions/delete_post.php" method="POST">
+                            <img src="assets/delete-24px.svg" alt="delete" onclick="deletePost();">
+                            <input type="hidden" name="img_id" value="<?php echo $_GET['id']; ?>">
+                            <input type="hidden" name="post_login" value="<?php echo $load_img['login']; ?>">
+                        </form>
+                        <?php
+                    }
+                    ?>
+                </div>
+
+                <img class="post_image" src="<?php echo $load_img['img']; ?>">
+
+                <div class='post_info_wrapper'>
+                    <input type="hidden" id="image_id" name="imgid" value="<?php echo $_GET['id']; ?>">
+                    <input type="hidden" id="loggued_on_user" name="login" value="<?php echo $_SESSION['loggued_on_user']; ?>">
+
+                    <div class="like_comment_btns">
+                        <div class="button_align">
+                            <div class="icon">
+                                <span class="visually-hidden">Likes:</span>
+                                <?php
+                                if (check_liked($_GET['id'], $_SESSION['loggued_on_user'], $conn)) {
+                                    ?>
+                                    <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"></i>
+                                    <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"
+                                       style="display:none"></i>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"
+                                       style="display:none"></i>
+                                    <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"></i>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <div id="num_likes">
+                                <?php echo(get_num_likes($_GET['id'], $conn)); ?>
+                            </div>
+                        </div>
+
+                        <div class="button_align">
+                            <span class="visually-hidden">Comments:</span>
+                            <img id="comment-btn"
+                                 class="icon"
+                                 src="assets/comment-24px.svg"
+                                 alt="comment"
+                                 onclick="focusCommentTextarea()"
+                            >
+
+                            <div id="num_comments">
+                                <?php echo(get_num_comments($_GET['id'], $conn)); ?>
+                            </div>
+                        </div>
                     </div>
-                    <div id="num_likes">
-                        <?php echo(get_num_likes($_GET['id'], $conn)); ?>
+
+                    <div class="post_date">
+                        <span><?php echo $load_img['postdate']; ?></span>
                     </div>
                 </div>
 
-                <div class="button_align">
-                    <span class="visually-hidden">Comments:</span>
-                    <i class="fas fa-comment fa-lg" id="comment-btn" aria-hidden="true" onclick="showComments()"></i>
-                    <div id="num_comments">
-                        <?php echo(get_num_comments($_GET['id'], $conn)); ?>
+                <div id="comment_display" style="display:none">
+                    <div class="comment_list" id="comment_list"></div>
+
+                    <div class="comment_publish">
+                        <textarea id="comment_input"
+                                  class="comment_input"
+                                  name="comment"
+                                  placeholder="Enter the comment."
+                                  onkeypress="keyHandle(event)"
+                        ></textarea>
+                        <button class="comment_submit" onclick="commentPost();">Publish</button>
                     </div>
-                </div>
-            </div>
-            <div id="comment_display" style="display:none">
-                <div id="comment_list"></div>
-                <div>
-                    <textarea name="comment" id="comment_input" placeholder="Enter the comment."></textarea>
-                    <button id="comment_submit" onclick="commentPost(event);">Submit</button>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
 
-<?php require_once('template/footer.php') ?>
+    </div>
+
+    <?php require_once('template/footer.php') ?>
 </body>
 </html>
+
+<script>
+    function focusCommentTextarea() {
+        var textarea = document.getElementById("comment_input");
+        textarea.focus();
+    }
+
+    function keyHandle(event) {
+        if (event.keyCode === 13) {
+            commentPost();
+            event.preventDefault();
+        }
+    }
+</script>

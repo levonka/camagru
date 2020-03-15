@@ -76,7 +76,7 @@ a {
 .loader {
     width: 5rem;
     height: 5rem;
-    border: 0.2rem solid #999;
+    border: 0.2rem solid rgb(219, 219, 219);
     border-bottom-color: transparent;
     border-radius: 50%;
     animation: loader 750ms ease infinite;
@@ -131,6 +131,7 @@ a.nav-logo {
 .top-nav .right-side {
     display: flex;
     flex-direction: row;
+    line-height: 14px;
 }
 
 .top-nav-icon {
@@ -155,61 +156,66 @@ a.nav-logo {
     justify-content: center;
 }
 
-.post_image {
-    width: 100%;
+/* Profile page */
+.my_account_wrapper {
+    display: flex;
+    padding: 1rem 0;
+    min-height: calc(100% - 100px);
 }
 
-/* Create three equal columns that floats next to each other */
 .sidebar {
     border: 1px solid #ccc;
-    border-radius: 10px;
-    margin-top: 58px;
-    min-width: 252px !important;
-    height: 100%;
+    border-radius: 4px;
+    min-width: 252px;
     text-align: left;
     background: white;
 }
 
 .content {
-    float: left;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    flex-grow: 3;
     padding-left: 10px;
-    height: 100%;
 }
 
 .content_body {
-    margin-top: 48px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: 1px solid rgb(219, 219, 219);
     background-color: white;
-    padding: 20px;
+    padding: 16px;
+    height: 100%;
 }
 
-.my_acc {
-    margin: 0 15% 0 15% !important;
+.content_body h3 {
+    margin: 0 0 1rem;
 }
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.content_body fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
 }
 
-.row div.sidebar div.side_menu {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 0;
-    width: 100%;
+.content_body legend {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
 }
 
-.row div.sidebar div.und {
-    border-bottom: 1px solid #ccc;
+.acct_details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    justify-content: space-between;
 }
 
-.row div.sidebar div.side_menu a {
-    margin-left: 20px;
+.content_body p {
+    margin: 12px 0;
+}
+
+.side_menu {
+    display: flex;
 }
 
 .side_menu a i.fas {
@@ -218,30 +224,14 @@ a.nav-logo {
 
 .side_menu a {
     color: black;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    width: 100%;
+    padding: 8px;
+    margin: 8px;
+    font-size: 16px;
 }
 
 /* instagram layout */
-
-.container {
-    max-width: 93.5rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.btn {
-    display: inline-block;
-    font: inherit;
-    background: none;
-    border: none;
-    color: inherit;
-    padding: 0;
-    cursor: pointer;
-}
-
-.btn:focus {
-    outline: 0.5rem auto #4d90fe;
-}
-
 .visually-hidden {
     position: absolute !important;
     height: 1px;
@@ -250,18 +240,7 @@ a.nav-logo {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-/*
-
-The following code will only run if your browser supports CSS grid.
-
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling. 
-
-*/
-
-
 /* Login Form */
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
 .login-page {
     width: 100%;
     padding: 8vh 0 0;
@@ -279,7 +258,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
 form input[type=password], form input[type=text], form input[type=email] {
     border-radius: 4px;
-    font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
     width: 100% !important;
@@ -312,35 +290,19 @@ form input[type=password], form input[type=text], form input[type=email] {
 }
 
 div .save_change {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    background-color: #80deea;
-    color: #FFFFFF;
-    font-size: 14pt;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin-top: 5px;
+    border: none;
+    padding: 8px;
 }
 
 div .delete_btn {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
     outline: 0;
     width: 100%;
-    border: 0;
-    padding: 15px;
+    border: none;
+    padding: 8px;
     background-color: rgb(189, 32, 32);
-    color: #FFFFFF;
-    font-size: 14pt;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    color: white;
     cursor: pointer;
-    margin-top: 5px;
+    font-size: 14pt;
 }
 
 .form .message {
@@ -354,77 +316,33 @@ div .delete_btn {
     text-decoration: none;
 }
 
-.form .register-form {
-    display: none;
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-    margin: 0 auto;
-}
-
-.container .info {
-    margin: 50px auto;
-    text-align: center;
-}
-
-.container .info span {
-    color: #4d4d4d;
-    font-size: 12px;
-}
-
-.container .info span a {
-    color: #000000;
-    text-decoration: none;
-}
-
-.container .info span .fa {
-    color: #EF3B3A;
-}
-
-@media only screen and (max-width: 450px) {
-    .my_acc {
-        margin: 0 10px 0 10px !important;
+@media only screen and (max-width: 500px) {
+    .my_account_wrapper {
+        flex-wrap: wrap;
     }
 
     .sidebar {
-        margin-top: 10px !important;
+        width: 100%;
     }
 
-    .nav-logo-text {
-        font-size: 22pt !important;
-    }
-
-    .container {
-        padding: 0 !important;
-    }
-
-    .top-nav-icon {
-        padding: 0 10px 0 10px !important;
-    }
-}
-
-@media only screen and (max-width: 1094px) {
-    .col-sm-4 {
-        max-width: 100% !important;
-        width: 100% !important;
-        flex: 100% !important;
-    }
-
-    .col-sm-8 {
-        max-width: 100% !important;
-        width: 100% !important;
-        flex: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    .sidebar .side_menu:last-child a {
+        border: none;
     }
 
     .content {
-        padding-top: 0 !important;
+        padding-left: 0;
+        margin-top: 8px;
     }
 
     .content_body {
-        margin-top: 0 !important;
+        min-height: 253px;
+    }
+
+    .nav-logo-text {
+        font-size: 22pt;
+    }
+
+    .top-nav-icon {
+        padding: 0 10px;
     }
 }

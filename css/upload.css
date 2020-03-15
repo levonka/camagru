@@ -1,3 +1,16 @@
+.upload_wrapper {
+    padding: 1rem 0;
+}
+
+.choice {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.instagram-btn:first-child {
+    margin-right: 2rem;
+}
+
 #video {
     width: 100%;
     height: auto;
@@ -19,10 +32,6 @@
     position: relative;
 }
 
-.output {
-    display: inline-block;
-}
-
 #output {
     width: 100%;
     position: relative;
@@ -30,28 +39,33 @@
 }
 
 .show_box {
-    margin-top: 48px;
     position: relative;
 }
 
-#startbutton {
-    display: block;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #80deea;
-    border: 0px solid;
-    font-size: 14px;
-    height: 30px;
+.choose_file_wrapper {
+    border-radius: 4px;
+    border: 2px dashed rgb(219, 219, 219);
+    outline: 0;
     width: 100%;
-    font-family: "Lucida Grande", "Arial", sans-serif;
+    padding: 6px;
+    color: black;
+    font-size: 14pt;
+    cursor: pointer;
 }
 
+.choose_file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#startbutton,
 .upload_btn {
-    width: 100%;
-    margin-bottom: 10px;
-    background-color: #4bacb8;
-    color: white;
+    border: none;
+    padding: 2px;
 }
 
 #sticker {
@@ -59,7 +73,8 @@
 }
 
 .preview-form {
-    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 #filter_tmp {
@@ -71,8 +86,8 @@
 }
 
 .tmp_pics {
-    height: 340px;
-    overflow-x: scroll;
+    margin-top: 1rem;
+    overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     padding-left: 10px;
@@ -84,11 +99,6 @@
     width: auto;
 }
 
-.container {
-    margin: 0 !important;
-    max-width: 100% !important;
-}
-
 .sticker_icons {
     width: 70px;
 }
@@ -96,21 +106,13 @@
 #sticker_lists {
     height: 90px;
     width: auto;
+    margin-top: 1rem;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-}
-
-.choice {
-	display: flex;
-}
-
-.row {
-    width: 100% !important;
-    margin: 0 !important;
 }
 
 /* HIDE RADIO */
@@ -128,5 +130,5 @@
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
-    outline: 2px solid #f00;
+    outline: 1px solid #f00;
 }

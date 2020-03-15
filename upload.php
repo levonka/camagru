@@ -19,11 +19,12 @@ if (!isset($_SESSION["loggued_on_user"])) {
 <div class="whole_body">
     <?php require_once('template/menu_bar.php'); ?>
 
-    <div class="wrapper">
+    <div class="wrapper upload_wrapper">
         <div class="choice">
             <a class="instagram-btn" href="upload.php?id=use_cam">Take Snap!</a>
             <a class="instagram-btn" href="upload.php?id=upload">Upload file</a>
         </div>
+
         <?php
         if (isset($_GET['id'])) {
             ?>
@@ -48,8 +49,15 @@ if (!isset($_SESSION["loggued_on_user"])) {
                         <img id="output">
                         <img id="filter_tmp">
                     </div>
-                    <input class="choose_file" type="file" accept="image/png"
-                           onchange="previewFile(event); activateSticker();">
+                    <input id="choose_file"
+                           class="choose_file"
+                           type="file"
+                           accept="image/png"
+                           onchange="previewFile(event); activateSticker();"
+                    >
+                    <label for="choose_file" class="choose_file_wrapper">
+                        <span>Choose file</span>
+                    </label>
                     <?php
                 }
 
@@ -78,7 +86,7 @@ if (!isset($_SESSION["loggued_on_user"])) {
                     </div>
                 <?php } ?>
                 <input type='hidden' name='return_id' value="<?php echo $_GET['id']; ?>">
-                <input type="submit" name="take_photo" id="startbutton" value="Take photo">
+                <input id="startbutton" type="submit" class="instagram-btn" name="take_photo" value="Take photo">
             </form>
             <?php
         }
@@ -117,7 +125,7 @@ if (!isset($_SESSION["loggued_on_user"])) {
             if (isset($_GET['id'])) {
                 if ($_GET['id'] === 'use_cam' || $_GET['id'] === 'upload') {
                     ?>
-                    <input type="submit" class="upload_btn" name="submit" value="Upload">
+                    <input type="submit" class="upload_btn instagram-btn" name="submit" value="Upload">
                     <?php
                 }
             }

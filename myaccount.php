@@ -13,26 +13,32 @@
 	<body>
 		<div class="whole_body">
 			<?php require_once ('template/menu_bar.php'); ?>
-			<div class="row my_acc">
-				<div class="sidebar col-sm-4">
-					<div class="side_menu und">
+
+			<div class="my_account_wrapper wrapper">
+				<div class="sidebar">
+					<div class="side_menu">
 						<a href="myaccount.php?id=default">
-							<i class="fas fa-user"></i>Account Info</a>
+							<i class="fas fa-user"></i>Account Info
+                        </a>
 					</div>
-					<div class="side_menu und">
+					<div class="side_menu">
 						<a href="myaccount.php?id=Account_Privacy">
-							<i class="fas fa-lock"></i>Account Privacy</a>
+							<i class="fas fa-lock"></i>Account Privacy
+                        </a>
 					</div>
-					<div class="side_menu und">
+					<div class="side_menu">
 						<a href="myaccount.php?id=notification">
-							<i class="fas fa-bell"></i>Notification Setting</a>
+							<i class="fas fa-bell"></i>Notification Setting
+                        </a>
 					</div>
 					<div class="side_menu">
 						<a href="myaccount.php?id=remove_user">
-							<i class="fas fa-user-slash" style="margin-right: 5px"></i>Delete Account</a>
+							<i class="fas fa-user-slash"></i>Delete Account
+                        </a>
 					</div>
 				</div>
-				<div class="content col-sm-8">
+
+				<div class="content">
 					<?php
 						$page_name = basename($_GET['id']);
 						require_once("pages/$page_name.php");

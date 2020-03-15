@@ -103,7 +103,6 @@ a {
 
 a.nav-logo {
     padding: 0;
-    margin-left: 15px;
     text-decoration: none;
 }
 
@@ -320,6 +319,16 @@ div .delete_btn {
 .form .message a {
     color: #4bacb8;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 960px) {
+    a.nav-logo {
+        margin-left: 15px;
+    }
+
+    .login-button {
+        margin-right: 15px;
+    }
 }
 
 @media only screen and (max-width: 500px) {

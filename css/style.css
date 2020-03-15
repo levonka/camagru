@@ -256,6 +256,12 @@ a.nav-logo {
 	border: 1px solid rgb(219, 219, 219);
 }
 
+.form-check-label {
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+}
+
 form input[type=password], form input[type=text], form input[type=email] {
     border-radius: 4px;
     outline: 0;

@@ -5,8 +5,10 @@
 		exit();
 	}
 	session_start();
+
 	if (!file_exists("../tmp/"))
 		mkdir ("../tmp/");
+
     $folderPath = "../tmp/";
 	$sourceImage = $_POST['source'];
 	$img = $_POST['test'];

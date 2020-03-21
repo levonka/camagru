@@ -40,7 +40,7 @@ require_once '../config/setup.php';
 try {
 	$oldpw = hash("whirlpool", $_POST['oldpw']);
 	$newpw = hash("whirlpool", $_POST['newpw']);
-	$login = $_SESSION['loggued_on_user'];
+	$login = $_SESSION['logged_user'];
 	// search for user data
 	$check_db = "SELECT * FROM users WHERE login LIKE ? AND passwd LIKE ?";
 	$sql = $conn->prepare($check_db);

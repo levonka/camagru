@@ -5,7 +5,7 @@
 		exit();
 	}
 	session_start();
-	if (!isset($_SESSION['loggued_on_user'])) {
+	if (!isset($_SESSION['logged_user'])) {
 		header("Location: ../login.php");
 		exit();
 	}
@@ -35,7 +35,7 @@
 	require_once '../config/setup.php';
 	try {
 		date_default_timezone_set('America/Los_Angeles');
-		$login = $_SESSION['loggued_on_user'];
+		$login = $_SESSION['logged_user'];
 		$date = date('Y-m-d H:i:s', time());
 		$sql = $conn->prepare("INSERT INTO posts (login, img, postdate)
 								VALUES (?, ?, ?)");

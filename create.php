@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (isset($_SESSION['loggued_on_user'])) {
+	if (isset($_SESSION['logged_user'])) {
 		header('Location: /');
 	}
 ?>

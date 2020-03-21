@@ -12,7 +12,7 @@ function likePost(i) {
         }
     };
     var img_id = document.getElementById("image_id").value;
-    var login = document.getElementById("loggued_on_user").value;
+    var login = document.getElementById("logged_user").value;
 
     var data = JSON.stringify({"img_id": img_id, "login": login});
 
@@ -29,7 +29,7 @@ function likePost(i) {
 
 function commentPost() {
     var img_id = document.getElementById("image_id").value;
-    var login = document.getElementById("loggued_on_user").value;
+    var login = document.getElementById("logged_user").value;
     var comment = document.getElementById("comment_input").value;
 
     comment = comment.replace(/\r?\n/g, '');
@@ -122,7 +122,6 @@ function loadPosts() {
                     var count_comments = single_post['count_comments'];
                     var img_id = single_post['id'];
                     var img_src = single_post['img'];
-                    var login = single_post['login'];
                     var gallery_item = document.createElement('div');
 
                     gallery_item.setAttribute('class', 'gallery-item');

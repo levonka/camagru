@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["loggued_on_user"])) {
+if (!isset($_SESSION["logged_user"])) {
     header('Location: login.php');
     exit();
 }
@@ -37,7 +37,7 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
                     </div>
 
                     <?php
-                    if ($load_img['login'] === $_SESSION['loggued_on_user']) {
+                    if ($load_img['login'] === $_SESSION['logged_user']) {
                         ?>
                         <form id="form_delete_post" class="form_delete_post" action="functions/delete_post.php" method="POST">
                             <img src="assets/delete-24px.svg" alt="delete" onclick="deletePost();">
@@ -53,14 +53,14 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
 
                 <div class='post_info_wrapper'>
                     <input type="hidden" id="image_id" name="imgid" value="<?php echo $_GET['id']; ?>">
-                    <input type="hidden" id="loggued_on_user" name="login" value="<?php echo $_SESSION['loggued_on_user']; ?>">
+                    <input type="hidden" id="logged_user" name="login" value="<?php echo $_SESSION['logged_user']; ?>">
 
                     <div class="like_comment_btns">
                         <div class="button_align">
                             <div class="icon">
                                 <span class="visually-hidden">Likes:</span>
                                 <?php
-                                if (check_liked($_GET['id'], $_SESSION['loggued_on_user'], $conn)) {
+                                if (check_liked($_GET['id'], $_SESSION['logged_user'], $conn)) {
                                     ?>
                                     <i class="fas fa-heart fa-lg" id="like-btn-1" aria-hidden="true" onclick="likePost(1)"></i>
                                     <i class="far fa-heart fa-lg" id="like-btn-0" aria-hidden="true" onclick="likePost(0)"

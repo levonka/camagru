@@ -9,7 +9,7 @@
 		header('Location: ../');
 		exit();
 	}
-	if (!isset($_POST['post_login']) || !$_POST['post_login'] || $_POST['post_login'] !== $_SESSION['loggued_on_user']) {
+	if (!isset($_POST['post_login']) || !$_POST['post_login'] || $_POST['post_login'] !== $_SESSION['logged_user']) {
 		header('Location: ../');
 		exit();
 	}

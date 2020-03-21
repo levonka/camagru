@@ -16,7 +16,7 @@ if (realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
 
         <div class="right-side">
             <?php
-            if (isset($_SESSION["loggued_on_user"])) {
+            if (isset($_SESSION["logged_user"])) {
                 ?>
                 <a href="upload.php" class="top-nav-icon">
                     <img src="../assets/camera_alt-24px.svg" alt="camera">

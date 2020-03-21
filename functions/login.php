@@ -18,7 +18,7 @@ if ($_POST["login"] && $_POST["passwd"])
 		$sql->execute(array($login, $passwd));
 		if ($user_data = $sql->fetch()) {
 			if ($user_data['verified']) {
-				$_SESSION["loggued_on_user"] = $login;
+				$_SESSION["logged_user"] = $login;
 				echo "OK\n";
 				unset($_SESSION["error"]);
 				header ("Location: ../");

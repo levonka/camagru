@@ -32,7 +32,7 @@
 
 	require_once '../config/setup.php';
 	try {
-		if (!isset($_SESSION['loggued_on_user'])) {
+		if (!isset($_SESSION['logged_user'])) {
 			header ('Location: ../login.php');
 			exit();
 		} else {
@@ -45,9 +45,9 @@
 			$check_dup_email->execute(array($email));
 			// prepare for search
 			$search = $conn->prepare("SELECT login, email FROM users WHERE login=?");
-			$search->execute(Array($_SESSION['loggued_on_user']));
+			$search->execute(Array($_SESSION['logged_user']));
 			if ($var = $check_dup_login->fetch()) {
-				if ($var['login'] !== $_SESSION['loggued_on_user']) {
+				if ($var['login'] !== $_SESSION['logged_user']) {
 					echo "ERROR\n";
 					$_SESSION["error"] = "This login is already taken!";
 					header("Location: ../myaccount.php?id=default");
@@ -55,7 +55,7 @@
 				}
 			}
 			if ($tmp = $check_dup_email->fetch()) {
-				if ($tmp['login'] !== $_SESSION['loggued_on_user']) {
+				if ($tmp['login'] !== $_SESSION['logged_user']) {
 					echo "ERROR\n";
 					$_SESSION["error"] = "This email is already taken!";
 					header("Location: ../myaccount.php?id=default");
@@ -64,14 +64,14 @@
 			}
 			if ($checker = $search->fetch()) {
 				$replace = $conn->prepare("UPDATE users SET login=?, email=? WHERE login=?");
-				$replace->execute(Array($login, $email, $_SESSION['loggued_on_user']));
-				$_SESSION['loggued_on_user'] = $login;
+				$replace->execute(Array($login, $email, $_SESSION['logged_user']));
+				$_SESSION['logged_user'] = $login;
 				$_SESSION["error"] = "Update Complete.";
 				header("Location: ../myaccount.php?id=default");
 				exit();
 			} else {
 				echo "FATAL ERROR";
-				unset($_SESSION['loggued_on_user']);
+				unset($_SESSION['logged_user']);
 				header("Location: ../login.php");
 				exit();
 			}

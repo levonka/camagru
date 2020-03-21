@@ -12,7 +12,7 @@ if (!isset($_POST["passwd"]) || !isset($_POST["login"])) {
 	header("Location: ../myaccount.php?id=remove_user");
 	exit();
 }
-if ($_POST['login'] !== $_SESSION['loggued_on_user']) {
+if ($_POST['login'] !== $_SESSION['logged_user']) {
 	echo "ERROR\n";
 	$_SESSION["error"] = "Your login does not match.";
 	header("Location: ../myaccount.php?id=remove_user");
@@ -42,7 +42,7 @@ try {
 			$delete_comments = $conn->prepare("DELETE FROM comments WHERE login=?");
 			$delete_comments->execute(Array($login));
 			unset($_SESSION['error']);
-			unset($_SESSION['loggued_on_user']);
+			unset($_SESSION['logged_user']);
 			echo "<script type=\"text/javascript\">";
 			echo "alert('You have successfully deleted your account.');";
 			echo "window.location = ('../login.php');";

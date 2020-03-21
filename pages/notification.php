@@ -6,7 +6,7 @@ if (realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
 }
 require_once("config/setup.php");
 $sql = $conn->prepare("SELECT login, notification FROM users WHERE login=?");
-$sql->execute(array($_SESSION['loggued_on_user']));
+$sql->execute(array($_SESSION['logged_user']));
 $ref = $sql->fetch();
 ?>
 

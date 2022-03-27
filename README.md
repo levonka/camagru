@@ -15,11 +15,11 @@ The purpose of this project is to create is to create a web application allowing
 
 ### Sign in/Register
 
-<p float="left">
+<div float="left">
     <img src="screenshots/login.jpg" alt="drawing" width="400"/>
     <img src="screenshots/registration.jpg" alt="drawing" width="400"/>
-</p>
+</div>
 
 ### Settings
 
-![](screenshots/settings.jpg)
+<img src="screenshots/settings.jpg" alt="drawing" width="400"/>

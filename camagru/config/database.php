@@ -13,6 +13,6 @@
     $DB_DNS = '127.0.0.1'; //or try 172.17.0.2
     $DB_PORT = '3306';
     $DB_USER = 'root';
-    $DB_PASSWORD = 'levon123';
-    $DB_NAME = 'Camagru';
+    $DB_PASSWORD = '';
+    $DB_NAME = '';
 ?>

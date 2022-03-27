@@ -23,3 +23,11 @@ The purpose of this project is to create is to create a web application allowing
 ### Settings
 
 <img src="screenshots/settings.jpg" alt="drawing" width="400"/>
+
+### Take picture
+
+<img src="screenshots/take_picture.jpg" alt="drawing" width="400"/>
+
+### Post
+
+<img src="screenshots/post.jpg" alt="drawing" width="400"/>

@@ -5,12 +5,6 @@ The purpose of this project is to create is to create a web application allowing
 
 [`camagru.en.pdf`](/camagru.en.pdf) is the task file.
 
-## Final score
-
-125/100 (max)
-
-![](screenshots/score.png)
-
 ## Overview
 
 ### Sign in/Register
@@ -31,3 +25,9 @@ The purpose of this project is to create is to create a web application allowing
 ### Post
 
 <img src="screenshots/post.jpg" alt="drawing" width="400"/>
+
+## Final score
+
+125/100 (max)
+
+![](screenshots/score.png)
